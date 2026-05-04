@@ -1,18 +1,18 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import type { Metadata } from "next";
+import SuburbPage from "@/components/SuburbPage";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
+export const metadata: Metadata = {
+  title: "Removalists Narrabeen Sydney — VirkTree",
+  description: "Professional removalists in Narrabeen 2101. VirkTree offers local and interstate moving services from $120/hr. Fully insured, 7 days a week. Call 0414 866 630.",
+};
 
-export default eslintConfig;
+export default function Page() {
+  return (
+    <SuburbPage
+      suburb="Narrabeen"
+      region="Northern Beaches"
+      postcode="2101"
+      nearbySuburbs={["Collaroy", "Dee Why", "Mona Vale", "Warriewood", "Elanora Heights"]}
+    />
+  );
+}
